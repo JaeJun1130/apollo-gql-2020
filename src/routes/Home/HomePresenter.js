@@ -49,13 +49,14 @@ const TopadbarSpan = styled.span`
 const Movies = styled.div`
     width: 80%;
     position: relative;
-    top: -10px;
+    top: -20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 50px;
 `;
 
 const HomePersenter = ({ loading, error, data }) => {
+    console.log(data);
     return (
         <>
             <Wrapper>
@@ -70,7 +71,7 @@ const HomePersenter = ({ loading, error, data }) => {
                 {!loading && data.movies && (
                     <Movies>
                         {data.movies.map((m) => (
-                            <Movie key={m.id} id={m.id} poster={m.medium_cover_image} />
+                            <Movie key={m.id} id={m.id} poster={m.medium_cover_image} isLiked={m.isLiked} />
                         ))}
                     </Movies>
                 )}
